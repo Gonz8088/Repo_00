@@ -17,4 +17,5 @@ def test_unit_conversion():
     assert unit_conversion(-5, 'E', '*') == -5000000000000000000
     assert unit_conversion(0, 'E', '*') == 0
     assert unit_conversion(5, 'E', '*') == 5000000000000000000
-    assert unit_conversion('X', 'E', '*') == TypeError("Expecting Numeric Value")
+    with pytest.raises(TypeError):
+        unit_conversion('X', 'E', '*')

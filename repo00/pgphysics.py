@@ -40,7 +40,7 @@ import math
 
 def unit_conversion(x, frm, to):
     if isinstance(frm, str):
-        raise TypeError("Expecting Numeric Value")
+        raise TypeError
     # exa(E) --> *
     if frm == 'E':
         if to == '*':

@@ -8,11 +8,29 @@
 
 import csv
 
-somedata = []
+def add_contact(fname, lname, num, address):
+    contact = {}
+    contact["FName"] = fname
+    contact["LName"] = lname
+    contact["Number"] = num
+    contact["Address"] = address
+    return contact
 
-for i in range(1, 100):
-    somedata.append(str(i))
+address_book = []
+q = ''
+while True:
+    fn = input("FName: ")
+    ln = input("LName: ")
+    num = input("Number: ")
+    add = input("Address: ")
+    address_book.append(add_contact(fn, ln, num, add))
+    q = input("q to quit...")
+    if q == 'q':
+        break
 
-with open('testdata.csv', 'w', newline='') as csvfile:
-    writer = csv.writer(csvfile, delimiter=' ', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    writer.writerows(somedata)
+with open('C:\\TestData\\MyContacts.csv', 'w', newline='') as csvfile:
+    fieldnames = ["FName", "LName", "Number", "Address"]
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for record in address_book:
+        writer.writerow(record)
