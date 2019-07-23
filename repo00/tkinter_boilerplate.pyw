@@ -12,8 +12,11 @@ edit_menu = tk.Menu(menu_bar)
 option_menu = tk.Menu(menu_bar)
 help_menu = tk.Menu(menu_bar)
 
+# Menu commands
 file_menu.add_command(label="New")
+file_menu.add_command(label="Close")
 edit_menu.add_command(label="Undo")
+edit_menu.add_command(label="Redo")
 option_menu.add_command(label="Pull")
 help_menu.add_command(label="About")
 
@@ -29,8 +32,10 @@ app.title("App")
 tabControl = ttk.Notebook(app)
 tab1 = ttk.Frame(tabControl)
 tab2 = ttk.Frame(tabControl)
+tab3 = ttk.Frame(tabControl)
 tabControl.add(tab1, text='Tab 1')
 tabControl.add(tab2, text='Tab 2')
+tabControl.add(tab3, text='Tab 3')
 tabControl.pack(expand=1, fill="both")
 
 app.mainloop()
