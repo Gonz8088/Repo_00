@@ -30,12 +30,28 @@ app.title("App")
 
 # Tabs
 tabControl = ttk.Notebook(app)
+
 tab1 = ttk.Frame(tabControl)
-tab2 = ttk.Frame(tabControl)
-tab3 = ttk.Frame(tabControl)
+frame1 = ttk.LabelFrame(tab1, text="Frame")
+frame1.grid(column=0, row=0, padx=8, pady=4)
+a_label = ttk.Label(frame1, text="Enter a name:")
+a_label.grid(column=0, row=0, sticky='W')
 tabControl.add(tab1, text='Tab 1')
+
+tab2 = ttk.Frame(tabControl)
+frame2 = ttk.LabelFrame(tab2, text="Frame")
+frame2.grid(column=0, row=0, padx=8, pady=4)
+b_label = ttk.Label(frame2, text="Enter a name:")
+b_label.grid(column=0, row=0, sticky='W')
 tabControl.add(tab2, text='Tab 2')
+
+tab3 = ttk.Frame(tabControl)
+frame3 = ttk.LabelFrame(tab3, text="Frame")
+frame3.grid(column=0, row=0, padx=8, pady=4)
+c_label = ttk.Label(frame3, text="Enter a name:")
+c_label.grid(column=0, row=0, sticky='W')
 tabControl.add(tab3, text='Tab 3')
+
 tabControl.pack(expand=1, fill="both")
 
 app.mainloop()
