@@ -14,7 +14,7 @@ def get_phone(string):
     """
 
     try:
-        phone_num_regex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+        phone_num_regex = re.compile(r'(\d\d\d-)?(\d\d\d-\d\d\d\d)')
         match_obj = phone_num_regex.search(string)
         num = match_obj.group()
         return num
