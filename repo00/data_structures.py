@@ -111,3 +111,5 @@ class DoublyLinkedList(object):
                     current.next.prev = current.prev
                     node_deleted = True
                 current = current.next
+        if node_deleted:
+            self.count -=1
