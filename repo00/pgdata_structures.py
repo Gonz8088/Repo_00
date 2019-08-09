@@ -79,7 +79,7 @@ class DoublyLinkedList(object):
 
     def append_node(self, data):
         """ Append an item to the list. """
-        new_node = NodeDLL(data, None, None)           
+        new_node = NodeDLL(data, None, None)
         if self.head is None:
             self.head = new_node
             self.tail = self.head
@@ -115,6 +115,66 @@ class DoublyLinkedList(object):
 
     def iter(self):
         current = self.head
+        while current:
+            val = current.data
+            current = current.next
+            yield val
+
+    def search(self, data):
+        for node in self.iter():
+            if data == node:
+                return True
+        return False
+
+# Circular Linked list
+class NodeCLL:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+
+    def __str__(self):              # <---This needs work
+        return str(self.data)
+
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.size = 0
+
+    def __str__(self):
+        return str(self.head)
+
+    def append_node(self, data):
+        node = NodeSLL(data)
+        if self.head:
+            self.head.next = node
+            self.head = node
+        else:
+            self.tail = node
+            self.head = node
+        self.size += 1
+
+    def delete_node(self, data):
+        current = self.tail
+        prev = self.tail
+        while current:
+            if current.data == data:
+                if current == self.tail:
+                    self.tail = current.next
+                else:
+                    prev.next = current.next
+                self.size -= 1
+                return
+            prev = current
+            current = current.next
+
+    def clear(self):
+        """Clear the entire list. """
+        self.tail = None
+        self.head = None
+
+    def iter(self):
+        current = self.tail
         while current:
             val = current.data
             current = current.next
