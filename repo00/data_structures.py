@@ -115,7 +115,7 @@ class DoublyLinkedList(object):
             self.count -=1
 
     def iter(self):
-        current = self.tail
+        current = self.head             
         while current:
             val = current.data
             current = current.next
@@ -125,4 +125,4 @@ class DoublyLinkedList(object):
         for node in self.iter():
             if data == node:
                 return True
-            return False
+        return False
