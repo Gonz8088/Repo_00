@@ -87,5 +87,5 @@ class DoublyLinkedList(object):
         else:
             new_node.prev = self.tail
             self.tail.next = new_node
-            self.head = new_node
+            self.tail = new_node
             self.count += 1
