@@ -104,7 +104,7 @@ class DoublyLinkedList(object):
             self.tail = self.tail.prev
             self.tail.next = None
             node_deleted = True
-        else
+        else:
             while current:
                 if current.data == data:
                     current.prev.next = current.next
@@ -113,3 +113,16 @@ class DoublyLinkedList(object):
                 current = current.next
         if node_deleted:
             self.count -=1
+
+    def iter(self):
+        current = self.tail
+        while current:
+            val = current.data
+            current = current.next
+            yield val
+
+    def search(self, data):
+        for node in self.iter():
+            if data == node:
+                return True
+            return False
