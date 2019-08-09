@@ -89,3 +89,25 @@ class DoublyLinkedList(object):
             self.tail.next = new_node
             self.tail = new_node
             self.count += 1
+
+    def delete_node(self, data):
+        """ delete_node uses the data passed to it to look up which node to delete """
+        current = self.head
+        node_deleted = False
+        if current is None:
+            node_deleted = False
+        elif current.data == data:
+            self.head = current.next
+            self.head.prev = None
+            node_deleted = True
+        elif self.tail.data == data:
+            self.tail = self.tail.prev
+            self.tail.next = None
+            node_deleted = True
+        else
+            while current:
+                if current.data == data:
+                    current.prev.next = current.next
+                    current.next.prev = current.prev
+                    node_deleted = True
+                current = current.next
