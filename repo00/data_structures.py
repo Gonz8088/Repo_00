@@ -1,7 +1,7 @@
 # From: Python Data Structures and Alogrithms
 # Benjamin Baka, Packt published 2017.
 
-# Nodes
+# Single Linked List
 class NodeSLL:
     def __init__(self, data=None):
         self.data = data
@@ -10,16 +10,6 @@ class NodeSLL:
     def __str__(self):              # <---This needs work
         return str(self.data)
 
-class NodeDLL(object):
-    def __init__(self, data=None, next=None, prev=None):
-        self.data = data
-        self.next = next
-        self.prev = prev
-
-    def __str__(self):
-        return str(self.data)       # <---This needs work
-
-# Single Linked List
 class SinglyLinkedList:
     def __init__(self):
         self.head = None
@@ -30,7 +20,7 @@ class SinglyLinkedList:
         return str(self.head)
 
     def append_node(self, data):
-        node = NodeSLL(data)           # Encapsulate the data in a Node
+        node = NodeSLL(data)
         if self.head:
             self.head.next = node
             self.head = node
@@ -39,7 +29,7 @@ class SinglyLinkedList:
             self.head = node
         self.size += 1
 
-    def delete_node(self, data):    # Delets a Node by using data as a reference
+    def delete_node(self, data):
         current = self.tail
         prev = self.tail
         while current:
@@ -72,6 +62,15 @@ class SinglyLinkedList:
         return False
 
 # Double Linked List
+class NodeDLL(object):
+    def __init__(self, data=None, next=None, prev=None):
+        self.data = data
+        self.next = next
+        self.prev = prev
+
+    def __str__(self):
+        return str(self.data)       # <---This needs work
+
 class DoublyLinkedList(object):
     def __init__(self):
         self.head = None
@@ -80,7 +79,7 @@ class DoublyLinkedList(object):
 
     def append_node(self, data):
         """ Append an item to the list. """
-        new_node = NodeDLL(data, None, None)           # Encapsulate the data in a Node
+        new_node = NodeDLL(data, None, None)           
         if self.head is None:
             self.head = new_node
             self.tail = self.head
@@ -115,7 +114,7 @@ class DoublyLinkedList(object):
             self.count -=1
 
     def iter(self):
-        current = self.head             
+        current = self.head
         while current:
             val = current.data
             current = current.next
