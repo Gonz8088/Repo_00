@@ -152,15 +152,17 @@ class CircularLinkedList:
         else:
             self.tail = node
             self.head = node
+        self.head.next = self.tail
         self.size += 1
 
     def delete_node(self, data):
         current = self.tail
         prev = self.tail
-        while current:
+        while prev == current or prev != self.head:
             if current.data == data:
                 if current == self.tail:
                     self.tail = current.next
+                    self.head.next = self.tail
                 else:
                     prev.next = current.next
                 self.size -= 1
