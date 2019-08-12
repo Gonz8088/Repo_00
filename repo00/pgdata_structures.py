@@ -223,3 +223,35 @@ class Stack:
             return self.top.data
         else:
             return None
+
+# List-based Queue
+class ListQueue:
+    def __init__(self):
+        self.items = []
+        self.size = 0
+
+    def enqueue(self, data):
+        self.times.insert(0, data)
+        self.size += 1
+
+    def dequeue(self):
+        data = self.items.pop()
+        self.size -= 1
+        return data
+
+# Stack-based Queue
+class StackQueue:
+    def __init__(self):
+        self.inbound_stack = []
+        self.outbound_stack = []
+
+    def enqueue(self, data):
+        self.inbound_stack.append(data)
+
+    def dequeue(self):
+        if not self.outbound_stack:
+            while self.inbound_stack:
+                self.outbound_stack.append(self.inbound_stack.pop())
+        return self.outbound_stack.pop()
+        
+# Node-based Queue
